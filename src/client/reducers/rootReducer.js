@@ -1,3 +1,4 @@
+import * as types from '../actiontypes/actionTypes';
 
 const initialState = {
   username: '',
@@ -6,13 +7,18 @@ const initialState = {
 
 
 const rootReducer = (state = initialState, action) => {
-  switch {
-    case "CREATE_USER":
-      
-    case "VERIFY_USER":
-
-    case "ADD_USERNAME":
-      
-    case "ADD_PASSWORD":
+  switch(action.type) {
+    case types.CREATE_USER:
+      return;
+    case types.VERIFY_USER:
+      return;
+    case types.ADD_USERNAME:
+      return;
+    case types.ADD_PASSWORD:
+      return;
+    default:
+      return state;
   }
 }
+
+export default rootReducer;

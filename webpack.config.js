@@ -8,7 +8,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './src/index.js',
   module: {
     rules: [
       {

@@ -2,16 +2,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import actions from action creators file
-import * as actions from '../actions/actions.js';
+import * as actions from '../actions/actions';
 // import child components if necessary
 
 const mapStateToProps = store => ({
   // provide pertinent state here
-  userName: store.userName,
+  username: store.username,
   password: store.password,
 });
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     createUser: (user, pass) => {
       dispatch(actions.createUser(user, pass));
@@ -25,8 +25,8 @@ const mapDispatchToProps = dispatch => {
     addPassword: (password) => {
       dispatch(actions.addPassword(password));
     },
-  }
-}
+  };
+};
   // create functions that will dispatch action creators
 
 
@@ -48,7 +48,7 @@ class LoginPage extends Component {
           console.log(event.target.value);
           props.addPassword(event.target.value)
         }}></input>
-      <button type='button' onClick={props.verifyUser}>Login</button>
+      <button type='button' onClick={this.props.verifyUser}>Login</button>
       </div>
     );
   }
