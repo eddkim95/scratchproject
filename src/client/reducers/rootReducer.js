@@ -12,7 +12,7 @@ const rootReducer = (state = initialState, action) => {
     case "VERIFY_USER":
 
     case "ADD_USERNAME":
-      // addpass;
+      
     case "ADD_PASSWORD":
   }
 }

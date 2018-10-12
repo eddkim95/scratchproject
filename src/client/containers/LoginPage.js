@@ -13,37 +13,45 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    createUser: () => {
-      dispatch(actions.createUser());
+    createUser: (user, pass) => {
+      dispatch(actions.createUser(user, pass));
     },
-    verifyUser: () => {
-      dispatch(actions.verifyUser());
+    verifyUser: (user, pass) => {
+      dispatch(actions.verifyUser(user, pass));
     },
-    addUsername: () => {
-      dispatch(actions.addUsername());
+    addUsername: (username) => {
+      dispatch(actions.addUsername(username));
     },
-    addPassword: () => {
-      dispatch(actions.addPassword());
+    addPassword: (password) => {
+      dispatch(actions.addPassword(password));
     },
   }
 }
   // create functions that will dispatch action creators
 
 
-class MarketsContainer extends Component {
+class LoginPage extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return(
-      <div className="innerbox">
-        <MarketCreator addMarket={this.props.addMarket} setNewLocation={this.props.setNewLocation}/>
-        <MarketsDisplay marketList={this.props.marketList} addCard={this.props.addCard} deleteCard={this.props.deleteCard} totalCards={this.props.totalCards}/>
-        { /* add components here... */ }
+      <div className="LoginBox">
+        <div></div>
+        <label style = {{fontSize:18}}>Location:</label>
+        <input type='text' onKeyUp={(event)=>{
+          console.log(event.target.value);
+          props.addUsername(event.target.value)
+        }}></input>
+        <input type='text' onKeyUp={(event)=>{
+          console.log(event.target.value);
+          props.addPassword(event.target.value)
+        }}></input>
+      <button type='button' onClick={props.verifyUser}>Login</button>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MarketsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
