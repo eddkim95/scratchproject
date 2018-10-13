@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => {
   // create functions that will dispatch action creators
 
 
-class LoginPage extends Component {
+class HomePage extends Component {
   constructor(props) {
     super(props);
   }
@@ -39,14 +39,10 @@ class LoginPage extends Component {
     const { username, password, verifyUser, addUsername, addPassword, togglePage } = this.props;
     return(
       <div className="LoginBox">
-        <label style = {{fontSize:18}}>LOGIN:</label>
-        <input type='text' onChange={addUsername} value={username} />
-        <input type='text' onChange={addPassword} value={password} />
-        <button type='button' onClick={() => verifyUser(username, password)}>Login</button>
-        <button type='button' onClick={togglePage}>Create Account?</button>
+        <label style = {{fontSize:18}}>HOME PAGE</label>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
